@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="wrapper">
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -18,7 +19,16 @@
 	</div>
 
 	<div class="container">
+		<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 		<%= yield %>
 	</div>
+</div>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted navbar-brand"> Treebook application by: <em> Mauricio Serna Flórez </em></p>
+		</div>
+	</footer>
 </body>
 </html>

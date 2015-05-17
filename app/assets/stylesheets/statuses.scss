@@ -22,3 +22,16 @@
 .status.hover .admin {
 	display: inline;
 }
+
+.wrapper {
+	min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.footer {
+	margin-top: 25px;
+  height: 60px;
+  background-color: transparent;
+}
