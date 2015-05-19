@@ -18,18 +18,23 @@ body {
 	padding-top: 40px;
 }
 
-.btn-recoberable {
-	margin-top: 5px;
+.alert {
+	margin-top: 20px;
 }
 
 .btn-login {
 	margin: 5px 0 5px 0;
 }
 
-.alert {
-	margin-top: 20px;
+.btn-recoberable {
+	margin-top: 5px;
 }
 
 .row {
 	margin-top: 40px;
+}
+
+.user-image {
+	margin-left: 5px;
+	border-radius: 50px;
 }
