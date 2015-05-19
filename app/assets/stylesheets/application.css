@@ -18,6 +18,18 @@ body {
 	padding-top: 40px;
 }
 
+.btn-recoberable {
+	margin-top: 5px;
+}
+
+.btn-login {
+	margin: 5px 0 5px 0;
+}
+
 .alert {
 	margin-top: 20px;
+}
+
+.row {
+	margin-top: 40px;
 }
