@@ -1,17 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="show-statuses">
+	<p>
+	  <strong> Published for: </strong>
+	  <%= @status.user.full_name %>
+	</p>
 
-<p>
-  <strong> Published for: </strong>
-  <%= @status.user.full_name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @status.content %>
-</p>
+	<p>
+	  <strong>Content:</strong>
+	  <%= @status.content %>
+	</p>
 
 
-<% if self.user_signed_in? %>
-	<%= link_to 'Edit', edit_status_path(@status) %> |
-	<%= link_to 'Back', statuses_path %>
-<% end %>
+	<% if self.user_signed_in? %>
+		<%= link_to 'Edit', edit_status_path(@status) %> |
+		<%= link_to 'Back', statuses_path %>
+	<% end %>
+</div>
