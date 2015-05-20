@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
   get 'profiles/show'
 
-  devise_for :users
-  devise_scope :user do
-    get "login", to: "devise/sessions#new"
-    get "register", to: "devise/registrations#new"
+  as :user do
+    get "/login", to: "devise/sessions#new"
+    get "/register", to: "devise/registrations#new"
   end
 
+  devise_for :users, skip: [:sessions]
+
+  as :user do
+    get "/login" => 'devise/sessions#new', as: :new_user_session
+    post "login" => 'devise/sessions#create', as: :user_session
+    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+  end
+
+  resources :user_friendships
   resources :statuses
   root to: 'statuses#index'
 
-  get '/:id', to: 'profiles#show'
+  get '/:id', to: 'profiles#show', as: 'profile'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
