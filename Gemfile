@@ -16,6 +16,7 @@ gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
 gem 'state_machine', '~> 1.2.0'
 gem 'draper', '~> 2.1.0'
+gem 'js-routes'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
