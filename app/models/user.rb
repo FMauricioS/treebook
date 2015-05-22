@@ -2,22 +2,31 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
+
   has_many :statuses
   has_many :user_friendships
-  has_many :friends, through: :user_friendships
+  # has_many :friends, through: :user_friendships,
+  #   conditions: { user_friendships: { state: 'accepted' } }
+  has_many :friends, -> { where(user_friendships: { state: "accepted"}) }, through: :user_friendships
+  has_many :pending_friends,
+              -> { where user_friendships: { state: "pending" } },
+                 through: :user_friendships,
+                 source: :friend
+  has_many :pending_friends,
+            through: :pending_user_friendships
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :profile_name, presence: true,
-                           uniqueness: true,
-                           format: {
-                             with: /\A[a-zA-Z0-9_-]+\z/,
-                             message: 'Must be formatted correctly.'
-                           }
+    uniqueness: true,
+  format: {
+    with: /\A[a-zA-Z0-9_-]+\z/,
+    message: 'Must be formatted correctly.'
+  }
 
   def full_name
-  	first_name + " " + last_name
+    first_name + " " + last_name
   end
 
   def to_param

@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
+gem 'state_machine', '~> 1.2.0'
+gem 'draper', '~> 2.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -35,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :test do
 	gem 'shoulda'
+  gem 'factory_girl', '~> 4.5.0'
 end
 
 group :development, :test do
